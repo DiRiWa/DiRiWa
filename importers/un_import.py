@@ -28,7 +28,7 @@ treatytype, created = RegionType.objects.get_or_create(name="Treaty")
 
 with transaction.commit_on_success():
    for line in reader:
-      line[3]=line[3].decode('utf8')
+      line[3]=line[3].decode('utf8').split(u"\u00A0")[0]
       treaty, created = Region.objects.get_or_create(name=line[3], type=treatytype)
 
       if created:
