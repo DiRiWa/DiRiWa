@@ -6,6 +6,7 @@ sys.path.append("..")
 os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 from diriwa.models import *
 from feedparser import parse
+from dateutil.parser import parse as dparse
 import settings
 settings.DEBUG = False
 from django.db import transaction
@@ -34,8 +35,10 @@ with transaction.commit_on_success():
             ts.append(tag.get('term'))
       if ts:
          newsitem, created = NewsItem.objects.get_or_create(headline=item.get('title'),
+                                                            timestamp_submitted=dparse(item.get('updated')),
                                                             url=item['links'][0]['href'])
          if created:
+            print 'added', newsitem.headline.encode('utf8')
             newsitem.text=''.join([x.value for x in item.content])
             newsitem.save()
             # add tags from bookmark
