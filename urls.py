@@ -12,6 +12,7 @@ urlpatterns = patterns('',
 	(r"^$",						TemplateView.as_view(template_name="index.html")),
 	(r"^about/credits/$",				TemplateView.as_view(template_name="credits.html")),
 	(r"^about/$",					TemplateView.as_view(template_name="about.html")),
+    (r"^contact/$",                   TemplateView.as_view(template_name="contact.html")),
 
 	(r"^news/$",					ListView.as_view(model=NewsItem, context_object_name="newsitems")),
 	(r"^news/add/$",				login_required(NewsItemCreateView.as_view())),
