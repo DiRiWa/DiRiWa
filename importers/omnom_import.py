@@ -49,8 +49,8 @@ with transaction.commit_on_success():
             # link topics to newsitem
             for t in ts:
                if not t.strip(): continue
-               newsitem.itemref.add(tmap[t])
+               newsitem.itemref.add(tmap[t.lower()])
             # link countries to newsitem
             for c in cs:
                if not c.strip(): continue
-               newsitem.itemref.add(cmap[c])
+               newsitem.itemref.add(cmap[c.lower()])
