@@ -16,21 +16,6 @@
 <div class="content">
 	<div class="row">
 		<div class="span6">
-			<h2>Region statistics</h2>
-			<table class="table table-bordered table-condensed">
-			{% if region.regionmembers.count %}<tr> <td>{% if region.type.name == "Country" %}Dependencies{%else%}Countries{%endif%}:</td><td>{{region.regionmembers.count}}</td> 	</tr> {% endif %}
-			<tr> <td>Population:</td><td>{{region.population}}</td>			</tr>
-			<tr> <td>Region type:</td><td>{{region.type}}</td>			</tr>
-			{% if region.url %}<tr> <td>Website:</td><td><a href="{{region.url}}">{{region.url}}</a></td></tr>{% endif %}
-			{% if region.itu_t %}<tr> <td>Dialing prefix:</td><td>{{region.itu_t}}</td></tr>{% endif %}
-			{% if region.deptype %}<tr> <td>Political status:</td><td>{{region.deptype}}{% if region.depsubtype %}, {{region.depsubtype}}{%endif%}</td></tr>{% endif %}
-			{% if region.capital %}<tr> <td>Capital:</td><td><a href="http://en.wikipedia.org/wiki/{{region.capital}}">{{region.capital}}</a></td></tr>{% endif %}
-			{% if region.currency %}<tr> <td>Currency:</td><td>{{region.currency}}</td></tr>{% endif %}
-			{% if region.languages.count %}<tr> <td>Languages:</td><td>{% for lang in region.languages %}{{lang}}, {%endfor%}</td></tr>{% endif %}
-			</table>
-		</div>
-
-		<div class="span6">
 			<h2>Table of Contents</h2>
 			<div class="well">
 			<ul>
@@ -39,27 +24,48 @@
 			{% empty %}
 				<li><a href="/regions/{{region.id}}/sections/add/">This {{region.type.name|lower}} has no information registered about it. Please help DiRiWa grow by adding some information!</a></li>
 			{% endfor %}
+         {% if region.relitem.count %}
+				<li><a href="#news">News</a></li>
+         {% endif %}
+				<li><a href="#memberships">Memberships</a></li>
+				<li><a href="#statistics">Statistics</a></li>
 			</ul>
 			</div>
 		</div>
-
 	</div>
 
 	{% if region.section_set.count %}
 	<hr/>
 	<div class="row">
-		<div class="span4">
 			<h2>Overall Digital Rights Situation</h2>
-
-			
-
-			</div>
 	</div>
 	{% endif %}
 
+	<div class="row">
+	{% for section in region.section_set.all %}
+		{% include "diriwa/section_display.html" %}
+	{% endfor %}
+	</div>
+
+	{% if region.relitem.count %}
+   <a name="news" ></a>
+	<div class="row">
+      <h2>News</h2>
+	  {% for item in region.relitem.all|slice:":6" %}
+	        {% include "diriwa/newsitem_display.html" %}
+	  {% endfor %}
+	</div>
+	<div class="row">
+	  {% if region.relitem.count > 6 %}
+	        <a class="btn btn-large" href="/regions/{{region.id}}/news/">More news! &raquo;</a>
+	  {% endif %}
+	</div>
+	{% endif %}
+
+			
 
 	<hr/>
-	<div class="row">
+   <div class="row"><a name="memberships" ></a>
 		{% if region.agreements %}
 		<div class="span4">
 			<h2>International agreements in the region</h2>
@@ -128,24 +134,22 @@
 	</div>
 
 	<div class="row">
-	{% for section in region.section_set.all %}
-		{% include "diriwa/section_display.html" %}
-	{% endfor %}
+      <div class="span6"><a name="statistics"></a>
+			<h2>Region statistics</h2>
+			<table class="table table-bordered table-condensed">
+			{% if region.regionmembers.count %}<tr> <td>{% if region.type.name == "Country" %}Dependencies{%else%}Countries{%endif%}:</td><td>{{region.regionmembers.count}}</td> 	</tr> {% endif %}
+			<tr> <td>Population:</td><td>{{region.population}}</td>			</tr>
+			<tr> <td>Region type:</td><td>{{region.type}}</td>			</tr>
+			{% if region.url %}<tr> <td>Website:</td><td><a href="{{region.url}}">{{region.url}}</a></td></tr>{% endif %}
+			{% if region.itu_t %}<tr> <td>Dialing prefix:</td><td>{{region.itu_t}}</td></tr>{% endif %}
+			{% if region.deptype %}<tr> <td>Political status:</td><td>{{region.deptype}}{% if region.depsubtype %}, {{region.depsubtype}}{%endif%}</td></tr>{% endif %}
+			{% if region.capital %}<tr> <td>Capital:</td><td><a href="http://en.wikipedia.org/wiki/{{region.capital}}">{{region.capital}}</a></td></tr>{% endif %}
+			{% if region.currency %}<tr> <td>Currency:</td><td>{{region.currency}}</td></tr>{% endif %}
+			{% if region.languages.count %}<tr> <td>Languages:</td><td>{% for lang in region.languages %}{{lang}}, {%endfor%}</td></tr>{% endif %}
+			</table>
+		</div>
 	</div>
 
-	{% if region.relitem.count %}
-	<div class="row">
-	  <h2>News</h2>
-	  {% for item in region.relitem.all|slice:":6" %}
-	        {% include "diriwa/newsitem_display.html" %}
-	  {% endfor %}
-	</div>
-	<div class="row">
-	  {% if region.relitem.count > 6 %}
-	        <a class="btn btn-large" href="/regions/{{region.id}}/news/">More news! &raquo;</a>
-	  {% endif %}
-	</div>
-	{% endif %}
 
 </div>
 
