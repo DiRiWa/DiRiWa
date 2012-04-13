@@ -10,4 +10,5 @@ python legacy_importer.py
 python wipo_import.py
 python coe_import.py
 python un_import.py
+wto_import.py
 python omnom_import.py
