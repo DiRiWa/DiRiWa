@@ -1,5 +1,16 @@
 s/Bahamas/"The Bahamas"/
 s/Holy See/"Vatican City"/
-s/Korea/"South Korea"/
 s/Kyrghyz Republic/Kyrgyz Republic/
 s/The former Yugoslav Republic of Macedonia/Macedonia/
+s/Bolivia (Plurinational State of)/Bolivia/
+s/Brunei Darussalam/Brunei/
+s/Burma/Myanmar/
+s/Holy See/Vatican City/
+s/Iran (Islamic Republic of)/Iran/
+s/,Salvador/,El Salvador/
+s/Viet Nam/Vietnam/
+s/Venezuela (Bolivarian Republic of)/Venezuela/
+s/Sao Tome and Principe/São Tomé and Príncipe/ 
+s/St. Kitts and Nevis/Saint Kitts and Nevis/
+s/St. Lucia/Saint Lucia/
+s/St. Vincent and the Grenadines/Saint Vincent and the Grenadines/
