@@ -269,3 +269,14 @@ class Link(models.Model):
 	timestamp_edited	= models.DateTimeField(auto_now=True)
 	
 	
+class Source(Entity):
+	attribution			= models.TextField()
+	url			= models.URLField()
+
+class Citation(Entity):
+	region			= models.ForeignKey(Region)
+	source			= models.ForeignKey(Source)
+	topic			= models.ForeignKey(Topic)
+	text		= models.TextField(blank=True, null=True)
+	rating_text		= models.TextField(blank=True, null=True)
+	score		= models.FloatField(blank=True, null=True)
