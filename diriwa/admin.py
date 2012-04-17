@@ -74,3 +74,11 @@ admin.site.register(models.NewsItem, NewsItemAdmin)
 class LinkAdmin(admin.ModelAdmin):
     pass
 admin.site.register(models.Link, LinkAdmin)
+
+class SourceAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(models.Source, SourceAdmin)
+
+class CitationAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(models.Citation, CitationAdmin)
