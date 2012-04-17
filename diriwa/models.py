@@ -143,7 +143,7 @@ class Region(Entity):
 		return set(agreements)
 		
 	def __unicode__(self):
-		return self.name			
+		return self.name or self.shortname
 
 
 class RegionLocalName(models.Model):
