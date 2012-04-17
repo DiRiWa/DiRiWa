@@ -277,6 +277,7 @@ class Citation(Entity):
 	region			= models.ForeignKey(Region)
 	source			= models.ForeignKey(Source)
 	topic			= models.ForeignKey(Topic)
-	text		= models.TextField(blank=True, null=True)
-	rating_text		= models.TextField(blank=True, null=True)
-	score		= models.FloatField(blank=True, null=True)
+	text		= models.TextField(blank=True, null=True) # longer description
+	rating_label		= models.TextField(blank=True, null=True) # a short label for the score/rating
+	rating		= models.TextField(blank=True, null=True) # a textual rating, e.g. High/Low/Medium
+	score		= models.FloatField(blank=True, null=True) # a numerical score
