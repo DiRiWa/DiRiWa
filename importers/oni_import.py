@@ -32,6 +32,9 @@ severities=["ONI testing did not uncover any evidence of websites being blocked.
             "Filtering that has either depth or breadth: either a number of categories are subject to a medium level of filtering or a low level of filtering is carried out across many categories.",
             "Filtering that is characterized by both its depth—a blocking regime that blocks a large portion of the targeted content in a given category—and its breadth—a blocking regime that includes filtering in several categories in a given theme."]
 
+trans="The transparency score given to each country is a qualitative measure based on the level at which the country openly engages in filtering. In cases where filtering takes place without open acknowledgment, or where the practice of filtering is actively disguised to appear as network errors, the transparency score is low. In assigning the transparency score, we have also considered the presence of provisions to appeal or report instances of inappropriate blocking."
+cons="Consistency measures the variation in filtering within a country across different ISPs—in some cases the availability of specific Web pages differs significantly depending on the ISP one uses to connect to the Internet."
+
 oni, created = Source.objects.get_or_create(url='http://opennet.net',
                                    attribution='\n'.join(["This data is licensed under a Creative Commons attribution license",
                                                           "(http://creativecommons.org/licenses/by/3.0/us/), meaning you're free",
@@ -48,10 +51,23 @@ with transaction.commit_on_success():
             except:
                 print (u"Failed to recognize country '%s'" % line[1]).encode('utf8')
                 continue
+
+        quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label="Consistency")
+        #if created:
+        quote.text=cons
+        quote.rating=line[11]
+        quote.save()
+
+        quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label="Transparency")
+        #if created:
+        quote.text=trans
+        quote.rating=line[10]
+        quote.save()
+
         for (type, score, text) in ((headers[i*2].split('_',1)[0],line[i*2], line[i*2+1]) for i in xrange(1,5)):
-            quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_text=type)
-            if created:
-                print "Adding: %s %s: %s(%s)" % (country, type, score, text)
-                quote.score=score
-                quote.text="%s\nScore: %s (%s) - %s" % (descs[type], score, text, severities[int(score)])
-                quote.save()
+            quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label=type)
+            #if created:
+            print "Adding: %s %s: %s(%s)" % (country, type, score, text)
+            quote.score=score
+            quote.text="%s\nScore: %s (%s) - %s\nYear observed: %s\nMore details: %s" % (descs[type], score, text, severities[int(score)], line[12], line[13])
+            quote.save()
