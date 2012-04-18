@@ -27,7 +27,7 @@ descs={'political': "This category is focused primarily on Web sites that expres
        'tools': "Web sites that provide e-mail, Internet hosting, search, translation, Voice-over Internet Protocol (VoIP) telephone service, and circumvention methods are grouped in this category."}
 
 severities=["ONI testing did not uncover any evidence of websites being blocked.",
-            " Connectivity abnormalities are present that suggest the presence of filtering, although diagnostic work was unable to confirm conclusively that inaccessible websites are the result of deliberate tampering.",
+            "Connectivity abnormalities are present that suggest the presence of filtering, although diagnostic work was unable to confirm conclusively that inaccessible websites are the result of deliberate tampering.",
             "Narrowly targeted filtering that blocks a small number of specific sites across a few categories or filtering that targets a single category or issue.",
             "Filtering that has either depth or breadth: either a number of categories are subject to a medium level of filtering or a low level of filtering is carried out across many categories.",
             "Filtering that is characterized by both its depth—a blocking regime that blocks a large portion of the targeted content in a given category—and its breadth—a blocking regime that includes filtering in several categories in a given theme."]
@@ -53,21 +53,21 @@ with transaction.commit_on_success():
                 continue
 
         quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label="Consistency")
-        #if created:
-        quote.text=cons
-        quote.rating=line[11]
-        quote.save()
+        if created:
+            quote.text=cons
+            quote.rating=line[11]
+            quote.save()
 
         quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label="Transparency")
-        #if created:
-        quote.text=trans
-        quote.rating=line[10]
-        quote.save()
+        if created:
+            quote.text=trans
+            quote.rating=line[10]
+            quote.save()
 
         for (type, score, text) in ((headers[i*2].split('_',1)[0],line[i*2], line[i*2+1]) for i in xrange(1,5)):
             quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label=type)
-            #if created:
-            print "Adding: %s %s: %s(%s)" % (country, type, score, text)
-            quote.score=score
-            quote.text="%s\nScore: %s (%s) - %s\nYear observed: %s\nMore details: %s" % (descs[type], score, text, severities[int(score)], line[12], line[13])
-            quote.save()
+            if created:
+                print "Adding: %s %s: %s(%s)" % (country, type, score, text)
+                quote.score=score
+                quote.text="%s\nScore: %s (%s) - %s\nYear observed: %s\nMore details: %s" % (descs[type], score, text, severities[int(score)], line[12], line[13])
+                quote.save()
