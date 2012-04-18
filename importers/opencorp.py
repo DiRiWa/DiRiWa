@@ -34,10 +34,10 @@ opencorp, created = Source.objects.get_or_create(
                            "Attribution Licence (http://creativecommons.org/licenses/by-sa/3.0/), allowing it to be freely reused. Attribution",
                            "should be to OpenCorporates with a hyperlink to the OpenCorporates website (http://OpenCorporates.com),",
                            "where such a link is possible (e.g. web pages, PDFs, Word documents).",
-                           "In addition, the underlying data is licensed under the Share-Alike Attribution Open Database Licence (http://",
-                           "opendatacommons.org/licenses/odbl/). Attribution should similarly be to OpenCorporates with a hyperlink to the",
-                           "OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g. web pages, PDFs,",
-                           "Word documents)."]))
+                           "In addition, the underlying data is licensed under the Share-Alike Attribution Open Database Licence",
+                           "(http://opendatacommons.org/licenses/odbl/). Attribution should similarly be to OpenCorporates with a",
+                           "hyperlink to the OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g.",
+                           "web pages, PDFs, Word documents)."]))
 
 if created: opencorp.save()
 topic = Topic.objects.get(name='Right to Data')
