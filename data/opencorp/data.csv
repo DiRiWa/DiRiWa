@@ -1,0 +1,47 @@
+,"Free and open search for a company (30 pts)","Licensing: Explicit open licence = 30, no licence info = 5, explicit closed licence/no data = 0","Data: Openly licensed data dump available or open api (20 points)","Detailed data available: Directors (10 pts)","Detailed data available: Statutory Filings (10 pts)","Detailed data available: Shareholders (10 pts)","Total (out of max 100 points)"
+ALBANIA,20,5,0,10,0,10,45
+ARMENIA,20,5,0,0,0,0,25
+AZERBAIJAN,0,0,0,0,0,0,0
+BRAZIL,0,0,0,0,0,0,0
+BULGARIA,20,0,0,0,10,0,30
+CANADA,6,3,0,2,0,1,12
+COLOMBIA,20,5,0,0,0,0,25
+CROATIA,20,0,0,0,0,0,20
+"CZECH REPUBLIC",20,0,0,10,10,10,50
+DENMARK,20,5,0,0,0,0,25
+ESTONIA,20,0,0,0,0,0,20
+GEORGIA,20,5,0,0,0,0,25
+GHANA,0,0,0,0,0,0,0
+GREECE,0,0,0,0,0,0,0
+ISRAEL,20,0,0,0,0,0,20
+ITALY,20,0,0,0,0,0,20
+JORDAN,20,0,0,0,0,0,20
+KENYA,0,0,0,0,0,0,0
+LATVIA,20,0,0,0,0,0,20
+LIBERIA,0,0,0,0,0,0,0
+LITHUANIA,20,5,0,0,0,0,25
+MALTA,20,0,0,0,0,0,20
+MEXICO,20,5,0,0,0,0,25
+MOLDOVA,20,5,0,0,0,0,25
+MONTENEGRO,20,0,0,10,0,0,30
+NETHERLANDS,20,5,0,0,0,0,25
+NORWAY,20,5,0,0,0,0,25
+PANAMA,20,0,0,10,0,0,30
+PERU,20,5,0,0,0,0,25
+PHILIPPINES,0,0,0,0,0,0,0
+ROMANIA,0,0,0,0,0,0,0
+"SLOVAK REPUBLIC",20,5,0,10,0,10,45
+"SOUTH AFRICA",20,5,0,0,0,0,25
+SPAIN,0,0,0,0,0,0,0
+SWEDEN,20,5,0,0,0,0,25
+TANZANIA,0,0,0,0,0,0,0
+"TRINIDAD & TOBAGO",20,0,0,0,0,0,20
+TURKEY,20,5,0,0,0,0,25
+"UK (current)",20,5,0,0,0,0,25
+"UK (July)",20,30,20,0,0,0,70
+UKRAINE,20,0,0,0,0,0,20
+"UNITED STATES",19,3,2,4,5,0,33
+,,,,,,,
+,,,,,,,
+,,,,,,,
+"OVERALL TOTAL",14.9,2.8,0.5,1.3,0.6,0.7,20.8
