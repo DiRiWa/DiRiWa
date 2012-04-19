@@ -20,13 +20,13 @@ headers = reader.next()
 #,"Free and open search for a company (30 pts)","Licensing: Explicit open licence = 30, no licence info = 5, explicit closed licence/no data = 0","Data: Openly licensed data dump available or open api (20 points)","Detailed data available: Directors (10 pts)","Detailed data available: Statutory Filings (10 pts)","Detailed data available: Shareholders (10 pts)","Total (out of max 100 points)"
 #ALBANIA,20,5,0,10,0,10,45
 
-headers=["Free and open search for a company (30 pts)",
-         "Licensing: Explicit open licence = 30, no licence info = 5, explicit closed licence/no data = 0",
-         "Data: Openly licensed data dump available or open api (20 points)",
-         "Detailed data available: Directors (10 pts)",
-         "Detailed data available: Statutory Filings (10 pts)",
-         "Detailed data available: Shareholders (10 pts)",
-         "Total (100 pts)"]
+labels=["Free search",
+        "Licensing",
+        "Dump/API",
+        "Directors Details",
+        "Statutory Filings",
+        "Shareholders Details",
+        "Total"]
 scores=[30, 30, 20, 10, 10, 10, 100]
 
 opencorp, created = Source.objects.get_or_create(
@@ -54,10 +54,10 @@ with transaction.commit_on_success():
                 print (u"Failed to recognize country '%s'" % line[0]).encode('utf8')
                 continue
 
-        for (type, score, max) in ((headers[i-1],line[i],scores[i-1]) for i in xrange(1,8)):
+        for (type, text, score) in ((labels[i-1],headers[i-1],line[i]) for i in xrange(1,8)):
             quote, created = Citation.objects.get_or_create(region=country, source=opencorp, topic=topic, rating_label=type)
             if created:
-                print "Adding: %s %s (max: %s) %s" % (country, score, max, type)
+                print "Adding: %s %s %s" % (country, score, type)
                 quote.score=score
-                quote.text="Score: %s (max: %s)\n%s" % (score, max, type )
+                quote.text=text
                 quote.save()
