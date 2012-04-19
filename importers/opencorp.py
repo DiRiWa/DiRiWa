@@ -25,8 +25,9 @@ headers=["Free and open search for a company (30 pts)",
          "Data: Openly licensed data dump available or open api (20 points)",
          "Detailed data available: Directors (10 pts)",
          "Detailed data available: Statutory Filings (10 pts)",
-         "Detailed data available: Shareholders (10 pts)"]
-scores=[30, 30, 20, 10, 10, 10]
+         "Detailed data available: Shareholders (10 pts)",
+         "Total (100 pts)"]
+scores=[30, 30, 20, 10, 10, 10, 100]
 
 opencorp, created = Source.objects.get_or_create(
     url='http://http://OpenCorporates.com',
@@ -53,7 +54,7 @@ with transaction.commit_on_success():
                 print (u"Failed to recognize country '%s'" % line[0]).encode('utf8')
                 continue
 
-        for (type, score, max) in ((headers[i-1],line[i],scores[i-1]) for i in xrange(1,7)):
+        for (type, score, max) in ((headers[i-1],line[i],scores[i-1]) for i in xrange(1,8)):
             quote, created = Citation.objects.get_or_create(region=country, source=opencorp, topic=topic, rating_label=type)
             if created:
                 print "Adding: %s %s (max: %s) %s" % (country, score, max, type)
