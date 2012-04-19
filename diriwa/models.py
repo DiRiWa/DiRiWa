@@ -272,6 +272,9 @@ class Link(models.Model):
 class Source(Entity):
 	attribution			= models.TextField()
 	url			= models.URLField()
+   
+	def __unicode__(self):
+		return "%s" % (self.url)
 
 class Citation(Entity):
 	region			= models.ForeignKey(Region)
@@ -281,3 +284,6 @@ class Citation(Entity):
 	rating_label		= models.TextField(blank=True, null=True) # a short label for the score/rating
 	rating		= models.TextField(blank=True, null=True) # a textual rating, e.g. High/Low/Medium
 	score		= models.FloatField(blank=True, null=True) # a numerical score
+   
+	def __unicode__(self):
+		return "%s\t%s\t%s" % (self.region, self.score or self.rating, self.rating_label)
