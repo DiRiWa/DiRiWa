@@ -12,28 +12,28 @@ $script.ready(['kartograph'], function() {
          url: '/quotes/'+topicid,
          dataType: 'json',
          success: function(data) {
+            if($.isEmptyObject(data)) return;
             dep_data = data;
             drawSources();
             redrawMeasures();
-            map = $K.map('#map', w, w);
-            map.loadMap('/static/world.svg', function() {
-               map.loadStyles('/static/css/svg-styles.css', function() {
-                  map.addLayer({
-                     id: 'regions',
-                     tooltip: {
-                        content: function(obj,foo) {
-                           return foo.data.name;
-                        }
-                     },
-                     key: 'id'
-                  });
-                  updateMap();
-               })
+            map = $K.map('#map', w, w/2);
+            map.loadMap('/static/svg/world.svg', function() {
+               map.addLayer({
+                  id: 'regions',
+                  tooltip: {
+                     content: function(obj,foo) {
+                        return foo.data.name;
+                     }
+                  },
+                  key: 'id'
+               });
+               updateMap();
             });
          }
       });
 
       function drawSources() {
+         $('#mapnav').show();
          var parent=$('#sources');
          parent.empty();
          var first=true;

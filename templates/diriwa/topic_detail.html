@@ -15,42 +15,52 @@
 </div>
 <h1>{{topic.name}}</h1>
 
-<div class="span6">
+<div class="span12 hidden" id="mapnav">
+   <h3>Source</h3>
+   <p id='sources'></p>
+   <h3>Measure</h3>
+   <p id='measures'></p>
+</div>
+<div class="span12">
    <div id="map">&nbsp;</div>
 </div>
-<div class="span5">
-   <div class="page-header">
-      <h1>{{map.title}}</h1>
-   </div>
-   {{map.desc}}
-   <h3>Source</h3>
-   <p id='sources'>
-   </p>
-   <h3>Measure</h3>
-   <p id='measures'>
-   </p>
-</div>
 
-{% for discussion in topic.section_set.all %}
-<div class="span16 topic">
-<h2><a href="/regions/{{discussion.region.id}}">{{discussion.region.name}}</a></h2>
-{{discussion.wikitext|safe}}
-<a href="/sections/edit/{{discussion.id}}/" class="btn small right">Edit this discussion</a>
+{% for region in citations %}
+<div class="span16 topic" id="{{region.region.region.isocode}}">
+   <h2><a href="/regions/{{region.region.region.id}}">{{region.region.region.name}}</a></h2>
+   {% if region.section %}
+   {{region.section.wikitext|safe}}
+   {% else %}
+   <p>Theres no info on this section yet, if you know some expert of {{topic.name}} in {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</p>
+   {% endif %}
+   <a href="/sections/edit/{{region.section.id}}/" class="btn small right">Edit this discussion</a>
+   {% if region.citations %}
+      <h3>Citations</h3>
+      {% regroup region.citations by source as quotes %}
+
+      {% for quote in quotes %}
+         <h4>Source: {{ quote.grouper }}</h4>
+         <div class="ref-credit"><small>{{ quote.grouper.attribution|linebreaks }}</small></div>
+         {% for item in quote.list %}
+            <p>{{ item.rating_label }} {{ item.score }} {{ item.rating }} <small>{{ item.text|linebreaks|urlize }}</small></p>
+         {% endfor %}
+      {% endfor %}
+   {% endif %}
 </div>
 {% endfor %}
 
 {% if topic.relitem.count %}
-<div class="row">
-  <h2>News</h2>
-  {% for item in topic.relitem.all|slice:":6" %}
-  {% include "diriwa/newsitem_display.html" %}
-  {% endfor %}
-</div>
-{% if topic.relitem.count > 6 %}
-<div class="row">
-  <a class="btn btn-large" href="/topics/{{topic.id}}/news/">More news! &raquo;</a>
-</div>
-{% endif %}
+   <div class="row">
+     <h2>News</h2>
+     {% for item in topic.relitem.all|slice:":6" %}
+        {% include "diriwa/newsitem_display.html" %}
+     {% endfor %}
+   </div>
+   {% if topic.relitem.count > 6 %}
+      <div class="row">
+        <a class="btn btn-large" href="/topics/{{topic.id}}/news/">More news! &raquo;</a>
+      </div>
+   {% endif %}
 {% endif %}
 
 {% endblock %}

@@ -128,3 +128,5 @@ div.biglist ul li {
 }
 
 #map path { stroke-width: 0.5px; }
+
+.hidden { display: none; }
