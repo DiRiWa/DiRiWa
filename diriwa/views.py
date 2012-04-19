@@ -23,79 +23,79 @@ import simplejson as json
 
 
 def jsonize(f):
-	def wrapped(*args, **kwargs):
-		return HttpResponse(json.dumps(f(*args, **kwargs)))
+   def wrapped(*args, **kwargs):
+      return HttpResponse(json.dumps(f(*args, **kwargs)))
 
-	return wrapped
+   return wrapped
 
 
 
 
 
 class RegionDetailView(DetailView):
-	context_object_name = "region"
-	model = Region
+   context_object_name = "region"
+   model = Region
 
 
 class TopicDetailView(DetailView):
-	context_object_name = "topic"
-	model = Topic
+   context_object_name = "topic"
+   model = Topic
 
 
 class SectionCreateView(CreateView):
-	context_object_name = "section"
-	template_name = "diriwa/section_new.html"
-	form_class = SectionForm
-	success_url = "/regions/%(region)d/"
+   context_object_name = "section"
+   template_name = "diriwa/section_new.html"
+   form_class = SectionForm
+   success_url = "/regions/%(region)d/"
 
-	def dispatch(self, *args, **kwargs):
-		self.region = get_object_or_404(Region, id=kwargs["region"])
-		return super(SectionCreateView, self).dispatch(*args, **kwargs)
+   def dispatch(self, *args, **kwargs):
+      self.region = get_object_or_404(Region, id=kwargs["region"])
+      return super(SectionCreateView, self).dispatch(*args, **kwargs)
 
-        def get_context_data(self, *args, **kwargs):
-                context_data = super(SectionCreateView, self).get_context_data(*args, **kwargs)
-                context_data.update({'region': self.region})
-                return context_data
+   def get_context_data(self, *args, **kwargs):
+      context_data = super(SectionCreateView, self).get_context_data(*args, **kwargs)
+      context_data.update({'region': self.region})
+      return context_data
 
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
-		self.object.region = self.region
-		self.object.save()
-		return HttpResponseRedirect(self.get_success_url())
+   def form_valid(self, form):
+      self.object = form.save(commit=False)
+      self.object.region = self.region
+      self.object.save()
+      return HttpResponseRedirect(self.get_success_url())
 
 
 class SectionDetailView(DetailView):
-	context_object_name = "section"
-	model = Section
+   context_object_name = "section"
+   model = Section
 
 
 class NewsItemCreateView(CreateView):
-	context_object_name = "newsitem"
-	template_name = "diriwa/newsitem_new.html"
-	form_class = NewsItemForm
-	success_url = "/news/%(id)d/"
+   context_object_name = "newsitem"
+   template_name = "diriwa/newsitem_new.html"
+   form_class = NewsItemForm
+   success_url = "/news/%(id)d/"
 
-	def dispatch(self, *args, **kwargs):
-		self.entityid = int(kwargs.get("entity", 0))
-		res = super(NewsItemCreateView, self).dispatch(*args, **kwargs)
+   def dispatch(self, *args, **kwargs):
+      self.entityid = int(kwargs.get("entity", 0))
+      res = super(NewsItemCreateView, self).dispatch(*args, **kwargs)
 
-		return res
+      return res
 
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
+   def form_valid(self, form):
+      self.object = form.save(commit=False)
 
-		if self.entityid == None:
-			self.entityid = int(self.request.REQUEST.get("entity", 0))
+      if self.entityid == None:
+         self.entityid = int(self.request.REQUEST.get("entity", 0))
 
-		print "Entity id: %d" % self.entityid
+      print "Entity id: %d" % self.entityid
 
-		self.object.itemref = get_object_or_404(Entity, id=self.entityid)
-		self.object.author = self.request.user
-		self.save()
+      self.object.itemref = get_object_or_404(Entity, id=self.entityid)
+      self.object.author = self.request.user
+      self.save()
 
-		return HttpResponseRedirect(self.get_success_url())
+      return HttpResponseRedirect(self.get_success_url())
 
-        
+
 class NewsListView(ListView):
         context_object_name = "newsitems"
         template_name = "diriwa/newsitem_list.html"
@@ -118,34 +118,58 @@ def search(request):
 
         if len(ctx["results"]) == 1:
                 return HttpResponseRedirect("/regions/%d/" % ctx["results"][0].id)
-        
+
         return render_to_response("diriwa/searchresults.html", ctx)
-        
+
 @login_required
 @jsonize
 def section_vote(request):
-	ctx = {"ok": True}
+   ctx = {"ok": True}
 
-	user = request.user
-	section = request.REQUEST.get("section", 0)
-	vote = int(request.REQUEST.get("vote", 5))
+   user = request.user
+   section = request.REQUEST.get("section", 0)
+   vote = int(request.REQUEST.get("vote", 5))
 
-	if section == 0:
-		return {"ok": False, "error": "Invalid section (zero)"}
+   if section == 0:
+      return {"ok": False, "error": "Invalid section (zero)"}
 
-	try:
-		v, created = SectionVote.objects.get_or_create(user=user, section_id=section)
-	except Exception, e:
-		return {"ok": False, "error": "Invalid section (%s)" % e}
-		
-	v.value = vote
-	v.save()
+   try:
+      v, created = SectionVote.objects.get_or_create(user=user, section_id=section)
+   except Exception, e:
+      return {"ok": False, "error": "Invalid section (%s)" % e}
 
-	ctx["section"] = section
-	ctx["vote"] = vote
-	ctx["user"] = user.username
-	ctx["severity"] = v.section.severity()
-	ctx["votes"] = v.section.votes()
-	
-	return ctx
+   v.value = vote
+   v.save()
 
+   ctx["section"] = section
+   ctx["vote"] = vote
+   ctx["user"] = user.username
+   ctx["severity"] = v.section.severity()
+   ctx["votes"] = v.section.votes()
+
+   return ctx
+
+@jsonize
+def topic_ratings(request, pk):
+    ctx = {"ok": True}
+
+    user = request.user
+    try:
+        topic = Topic.objects.get(id=pk)
+    except Exception, e:
+        return {"ok": False, "error": "Invalid topic (%s)" % e}
+
+    try:
+        quotes = Citation.objects.filter(topic=topic)
+    except Exception, e:
+        return {"ok": False, "error": "Invalid citation (%s)" % e}
+
+    res={}
+    for q in quotes:
+        if not q.source.url in res:
+            res[q.source.url]={}
+        if not q.region.isocode in res[q.source.url]:
+            res[q.source.url][q.region.isocode]={'id': q.region.isocode,}
+        if q.score!=None:
+            res[q.source.url][q.region.isocode][q.rating_label]=q.score
+    return dict([(k, [x for _, x in sorted(v.items())]) for k, v in res.items()])
