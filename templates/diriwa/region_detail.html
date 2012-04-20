@@ -5,6 +5,14 @@
 		<a href="/regions/{{region.id}}/links/add/" class="btn">Add link</a>
 		<a href="/regions/{{region.id}}/memberships/add/" class="btn">Edit memberships</a>
 {% endblock %}
+{% block scripts %}
+   <script type="text/javascript" src="/static/js/script.min.js"></script>
+   <script type="text/javascript">
+      $script(['/static/js/jquery.js'], 'jquery');
+      $script(['/static/js/raphael.min.js'], 'raphael');
+   </script>
+   <script type="text/javascript" src="/static/js/charts.js"></script>
+{% endblock %}
 {% block content %}
 
 {% if region.shortname %}
@@ -130,6 +138,30 @@
 	<div class="row">
 	{% for section in region.section_set.all %}
 		{% include "diriwa/section_display.html" %}
+   {% empty %}
+      {% for topic in citations.values %}
+      <div class="span16 topic" id="{{topic.topic.name}}">
+         <h2><a href="/topics/{{topic.topic.id}}">{{topic.topic.name}}</a></h2>
+         {% if topic.citations %}
+            {% regroup topic.citations by source as quotes %}
+
+            {% for quote in quotes %}
+               <div class="source-container">
+                  <span class="span3 bargraph"></span>
+                  <span class="span8 quotes">
+                     {% for item in quote.list %}
+                        <p class="quote"><span class="rating-label">{{ item.rating_label }}</span> {% if not item.score == None %}<span class="score">{{ item.score|floatformat }}</span> (out of <span class="maxscore">{{item.maxscore|floatformat}}</span>){%endif%} {% if item.rating %}<span class="rating">{{ item.rating }}</span>{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
+                     {% endfor %}
+                  </span>
+                  <div class="span8 ref-credit">
+                     <h4>Source: <span class="source">{{ quote.grouper }}</span></h4>
+                     <a class="more-button">Attribution</a><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote>
+                  </div>
+               </div>
+            {% endfor %}
+         {% endif %}
+      </div>
+      {% endfor %}
 	{% endfor %}
 	</div>
 

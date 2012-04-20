@@ -29,9 +29,17 @@ def jsonize(f):
    return wrapped
 
 class RegionDetailView(DetailView):
-   context_object_name = "region"
-   model = Region
-
+    context_object_name = "region"
+    model = Region
+    def get_context_data(self, **kwargs):
+        context = super(RegionDetailView, self).get_context_data(**kwargs)
+        res={}
+        for c in Citation.objects.filter(region=kwargs['object']):
+            if not c.topic.name in res: res[c.topic.name]={'topic': c.topic,
+                                                           'citations': []}
+            res[c.topic.name]['citations'].append(c)
+        context['citations'] = res
+        return context
 
 class TopicDetailView(DetailView):
     context_object_name = "topic"

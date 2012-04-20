@@ -32,4 +32,28 @@
 </div>
 
 {{section.wikitext|safe}}
+
+{% if section.topic.name in citations.keys %}
+      {% for topic in citations.values %}
+         {% if topic.topic.name == section.topic.name and topic.citations %}
+            <h3>Quotes</h3>
+            {% regroup topic.citations by source as quotes %}
+
+            {% for quote in quotes %}
+               <div class="source-container">
+                  <span class="span3 bargraph"></span>
+                  <span class="span8 quotes">
+                     {% for item in quote.list %}
+                        <p class="quote"><span class="rating-label">{{ item.rating_label }}</span> {% if not item.score == None %}<span class="score">{{ item.score|floatformat }}</span> (out of <span class="maxscore">{{item.maxscore|floatformat}}</span>){%endif%} {% if item.rating %}<span class="rating">{{ item.rating }}</span>{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
+                     {% endfor %}
+                  </span>
+                  <div class="span8 ref-credit">
+                     <h4>Source: <span class="source">{{ quote.grouper }}</span></h4>
+                     <a class="more-button">Attribution</a><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote>
+                  </div>
+               </div>
+            {% endfor %}
+         {%endif%}
+      {% endfor %}
+{%endif%}
 </div>
