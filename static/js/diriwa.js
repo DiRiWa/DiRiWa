@@ -16,3 +16,10 @@ function biglist_filter(element) {
 	} 
     })
 }
+
+$(document).ready(function() {
+  $('.more-button').click(function() {
+   $(this).next().toggleClass('hidden');
+  });
+  $('.more-button').next().addClass('hidden');
+});
