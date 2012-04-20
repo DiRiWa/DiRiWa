@@ -31,7 +31,7 @@
    {% if region.section %}
    {{region.section.wikitext|safe}}
    {% else %}
-   <p>Theres no info on this section yet, if you know some expert of {{topic.name}} in {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</p>
+   <p>Theres no info on this section yet, if you know some expert of {{topic.name}} in the {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</p>
    {% endif %}
    <a href="/sections/edit/{{region.section.id}}/" class="btn small right">Edit this discussion</a>
    {% if region.citations %}
@@ -40,9 +40,9 @@
 
       {% for quote in quotes %}
          <h4>Source: {{ quote.grouper }}</h4>
-         <div class="ref-credit"><small>{{ quote.grouper.attribution|linebreaks }}</small></div>
+         <div class="ref-credit"><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote></div>
          {% for item in quote.list %}
-            <p>{{ item.rating_label }} {{ item.score }} {{ item.rating }} <small>{{ item.text|linebreaks|urlize }}</small></p>
+         <p>{{ item.rating_label }} {% if not item.score == None %}{{ item.score }} (out of {{item.maxscore}}){%endif%} {% if item.rating %}{{ item.rating }}{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
          {% endfor %}
       {% endfor %}
    {% endif %}

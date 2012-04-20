@@ -21,10 +21,10 @@ headers = reader.next()
 # country_code,country,political_score,political_description,social_score,social_description,tools_score,tools_description,conflict/security_score,conflict_security_description,transparency,consistency,testing_date,url
 # AE,United Arab Emirates,3,substantial,4,pervasive,4,pervasive,2,selective,Medium,High,2009,http://opennet.net/research/profiles/uae
 
-descs={'political': "This category is focused primarily on Web sites that express views in opposition to those of the current government. Content more broadly related to human rights, freedom of expression, minority rights, and religious movements is also considered here.",
-       'social': "This group covers material related to sexuality, gambling, and illegal drugs and alcohol, as well as other topics that may be socially sensitive or perceived as offensive.",
-       'conflict/security': "Content related to armed conflicts, border disputes, separatist movements, and militant groups is included in this category.",
-       'tools': "Web sites that provide e-mail, Internet hosting, search, translation, Voice-over Internet Protocol (VoIP) telephone service, and circumvention methods are grouped in this category."}
+descs={'Political': "This category is focused primarily on Web sites that express views in opposition to those of the current government. Content more broadly related to human rights, freedom of expression, minority rights, and religious movements is also considered here.",
+       'Social': "This group covers material related to sexuality, gambling, and illegal drugs and alcohol, as well as other topics that may be socially sensitive or perceived as offensive.",
+       'Conflict/Security': "Content related to armed conflicts, border disputes, separatist movements, and militant groups is included in this category.",
+       'Tools': "Web sites that provide e-mail, Internet hosting, search, translation, Voice-over Internet Protocol (VoIP) telephone service, and circumvention methods are grouped in this category."}
 
 severities=["ONI testing did not uncover any evidence of websites being blocked.",
             "Connectivity abnormalities are present that suggest the presence of filtering, although diagnostic work was unable to confirm conclusively that inaccessible websites are the result of deliberate tampering.",
@@ -64,10 +64,17 @@ with transaction.commit_on_success():
             quote.rating=line[10]
             quote.save()
 
-        for (type, score, text) in ((headers[i*2].split('_',1)[0],line[i*2], line[i*2+1]) for i in xrange(1,5)):
+        for (type, score, text) in ((headers[i*2].split('_',1)[0].title(),line[i*2], line[i*2+1]) for i in xrange(1,5)):
             quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label=type)
             if created:
                 print "Adding: %s %s: %s(%s)" % (country, type, score, text)
                 quote.score=score
-                quote.text="%s\nScore: %s (%s) - %s\nYear observed: %s\nMore details: %s" % (descs[type], score, text, severities[int(score)], line[12], line[13])
+                quote.maxscore=4
+                quote.text="%s - %s\n%s" % (text, severities[int(score)], descs[type])
                 quote.save()
+        quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label='Total')
+        if created:
+            quote.score=sum((int(line[i*2]) for i in xrange(1,5)))
+            quote.maxscore=16
+            quote.text="Total Score: %s (out of 16) %s - %s\nYear observed: %s\nMore details: %s" % (score, text, severities[int(score)], line[12], line[13])
+            quote.save()

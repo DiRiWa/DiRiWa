@@ -17,7 +17,7 @@ csvfile.seek(0)
 reader = csv.reader(csvfile, dialect=dialect)
 headers = reader.next()
 
-#,"Free and open search for a company (30 pts)","Licensing: Explicit open licence = 30, no licence info = 5, explicit closed licence/no data = 0","Data: Openly licensed data dump available or open api (20 points)","Detailed data available: Directors (10 pts)","Detailed data available: Statutory Filings (10 pts)","Detailed data available: Shareholders (10 pts)","Total (out of max 100 points)"
+#country,"Free and open search for a company (30 pts)","Licensing: Explicit open licence = 30, no licence info = 5, explicit closed licence/no data = 0","Data: Openly licensed data dump available or open api (20 points)","Detailed data available: Directors (10 pts)","Detailed data available: Statutory Filings (10 pts)","Detailed data available: Shareholders (10 pts)","Total (out of max 100 points)"
 #ALBANIA,20,5,0,10,0,10,45
 
 labels=["Free search",
@@ -30,15 +30,9 @@ labels=["Free search",
 scores=[30, 30, 20, 10, 10, 10, 100]
 
 opencorp, created = Source.objects.get_or_create(
-    url='http://http://OpenCorporates.com',
-    attribution='\n'.join(["This document and the information contained in it is published under the Creative Commons Share-Alike",
-                           "Attribution Licence (http://creativecommons.org/licenses/by-sa/3.0/), allowing it to be freely reused. Attribution",
-                           "should be to OpenCorporates with a hyperlink to the OpenCorporates website (http://OpenCorporates.com),",
-                           "where such a link is possible (e.g. web pages, PDFs, Word documents).",
-                           "In addition, the underlying data is licensed under the Share-Alike Attribution Open Database Licence",
-                           "(http://opendatacommons.org/licenses/odbl/). Attribution should similarly be to OpenCorporates with a",
-                           "hyperlink to the OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g.",
-                           "web pages, PDFs, Word documents)."]))
+    url='http://OpenCorporates.com',
+    attribution='\n'.join(["This document and the information contained in it is published under the Creative Commons Share-Alike Attribution Licence (http://creativecommons.org/licenses/by-sa/3.0/), allowing it to be freely reused. Attribution should be to OpenCorporates with a hyperlink to the OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g. web pages, PDFs, Word documents).",
+                           "In addition, the underlying data is licensed under the Share-Alike Attribution Open Database Licence (http://opendatacommons.org/licenses/odbl/). Attribution should similarly be to OpenCorporates with a hyperlink to the OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g. web pages, PDFs, Word documents)."]))
 
 if created: opencorp.save()
 topic = Topic.objects.get(name='Right to Data')
@@ -54,10 +48,11 @@ with transaction.commit_on_success():
                 print (u"Failed to recognize country '%s'" % line[0]).encode('utf8')
                 continue
 
-        for (type, text, score) in ((labels[i-1],headers[i-1],line[i]) for i in xrange(1,8)):
+        for (type, text, score, max) in ((labels[i-1],headers[i-1],line[i], scores[i-1]) for i in xrange(1,8)):
             quote, created = Citation.objects.get_or_create(region=country, source=opencorp, topic=topic, rating_label=type)
             if created:
                 print "Adding: %s %s %s" % (country, score, type)
                 quote.score=score
+                quote.maxscore=max
                 quote.text=text
                 quote.save()

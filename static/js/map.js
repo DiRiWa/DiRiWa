@@ -8,6 +8,10 @@ $script.ready(['kartograph'], function() {
          dep_data,
          w = $('#map').parent().width();
 
+      var onCountryClick = function(target) {
+         window.location='#'+target.id;
+      };
+
       $.ajax({
          url: '/quotes/'+topicid,
          dataType: 'json',
@@ -27,6 +31,7 @@ $script.ready(['kartograph'], function() {
                   },
                   key: 'id'
                });
+               map.onLayerEvent('click', onCountryClick, 'regions');
                updateMap();
             });
          }
@@ -51,15 +56,10 @@ $script.ready(['kartograph'], function() {
          var data=dep_data[$('.source.btn-primary').data('value')];
          var parent=$('#measures');
          parent.empty();
-         var first=true;
+         parent.append('<a class="measure btn btn-primary" data-value="Total">Total</a>')
          for(var i in data[0]) {
-            if(i=='id') continue;
-            var tmp='';
-            if(first) {
-              tmp=' btn-primary';
-              first=false;
-            }
-            parent.append('<a class="measure btn'+tmp+'" data-value="'+i+'">'+i+'</a>')
+            if(i=='id' || i=='Total') continue;
+            parent.append('<a class="measure btn" data-value="'+i+'">'+i+'</a>')
          }
          // init user interface
          $('.btn').click(buttonClick);

@@ -284,6 +284,7 @@ class Citation(Entity):
 	rating_label		= models.TextField(blank=True, null=True) # a short label for the score/rating
 	rating		= models.TextField(blank=True, null=True) # a textual rating, e.g. High/Low/Medium
 	score		= models.FloatField(blank=True, null=True) # a numerical score
+	maxscore =  models.FloatField(blank=True, null=True) # a numerical max score
    
 	def __unicode__(self):
 		return "%s\t%s\t%s" % (self.region, self.score or self.rating, self.rating_label)
