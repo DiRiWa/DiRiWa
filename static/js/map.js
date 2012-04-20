@@ -1,7 +1,8 @@
 $script(['/static/js/jquery.js'], 'jquery');
-$script(['/static/js/raphael.min.js', '/static/js/kartograph.min.js', '/static/js/chroma.min.js', '/static/js/qtip.min.js'], 'kartograph');
+$script(['/static/js/raphael.min.js'], 'raphael');
+$script(['/static/js/kartograph.min.js', '/static/js/chroma.min.js', '/static/js/qtip.min.js'], 'kartograph');
 
-$script.ready(['kartograph'], function() {
+$script.ready(['kartograph', 'raphael'], function() {
    $(function() {
       var map,
          colorscale,
