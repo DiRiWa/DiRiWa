@@ -27,7 +27,7 @@
 
 {% for region in citations %}
 <div class="span16 topic" id="{{region.region.region.isocode}}">
-   <h2><a href="/regions/{{region.region.region.id}}">{{region.region.region.name}}</a></h2>
+   <h2><a href="/regions/{{region.region.region.id}}">{% if region.region.region.name %}{{region.region.region.name}}{%else%}{{region.region.region.shortname}}{%endif%}</a></h2>
    {% if region.section %}
    {{region.section.wikitext|safe}}
    {% else %}
