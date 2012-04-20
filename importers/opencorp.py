@@ -48,7 +48,7 @@ with transaction.commit_on_success():
                 print (u"Failed to recognize country '%s'" % line[0]).encode('utf8')
                 continue
 
-        for (type, text, score, max) in ((labels[i-1],headers[i-1],line[i], scores[i-1]) for i in xrange(1,8)):
+        for (type, text, score, max) in ((labels[i-1],headers[i],line[i], scores[i-1]) for i in xrange(1,8)):
             quote, created = Citation.objects.get_or_create(region=country, source=opencorp, topic=topic, rating_label=type)
             if created:
                 print "Adding: %s %s %s" % (country, score, type)
