@@ -70,7 +70,7 @@ with transaction.commit_on_success():
                 print "Adding: %s %s: %s(%s)" % (country, type, score, text)
                 quote.score=score
                 quote.maxscore=4
-                quote.text="%s - %s\n%s" % (text, severities[int(score)], descs[type])
+                quote.text="%s - %s\n%s" % (text, descs[type], severities[int(score)])
                 quote.save()
         quote, created = Citation.objects.get_or_create(region=country, source=oni, topic=topic, rating_label='Total')
         if created:
