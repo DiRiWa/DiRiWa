@@ -5,6 +5,7 @@
    </script>
    <script type="text/javascript" src="/static/js/script.min.js"></script>
    <script type="text/javascript" src="/static/js/map.js"></script>
+   <script type="text/javascript" src="/static/js/charts.js"></script>
 
 {% endblock %}
 {% block content %}
@@ -39,11 +40,18 @@
       {% regroup region.citations by source as quotes %}
 
       {% for quote in quotes %}
-         <h4>Source: {{ quote.grouper }}</h4>
-         <div class="ref-credit"><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote></div>
-         {% for item in quote.list %}
-         <p>{{ item.rating_label }} {% if not item.score == None %}{{ item.score }} (out of {{item.maxscore}}){%endif%} {% if item.rating %}{{ item.rating }}{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
-         {% endfor %}
+         <div class="source-container">
+            <span class="span3 bargraph"></span>
+            <span class="span8 quotes">
+               {% for item in quote.list %}
+                  <p class="quote"><span class="rating-label">{{ item.rating_label }}</span> {% if not item.score == None %}<span class="score">{{ item.score|floatformat }}</span> (out of <span class="maxscore">{{item.maxscore|floatformat}}</span>){%endif%} {% if item.rating %}<span class="rating">{{ item.rating }}</span>{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
+               {% endfor %}
+            </span>
+            <div class="span8 ref-credit">
+               <h4>Source: <span class="source">{{ quote.grouper }}</span></h4>
+               <a class="more-button">Attribution</a><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote>
+            </div>
+         </div>
       {% endfor %}
    {% endif %}
 </div>
