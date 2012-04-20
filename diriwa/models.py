@@ -222,6 +222,7 @@ class Section(Entity):
 	
 	class Meta:
 		unique_together	=	(("region", "topic"),)
+		ordering = ["region"]
 
 
 class SectionVote(models.Model):
@@ -257,6 +258,8 @@ class NewsItem(Entity):
 	author			= models.ForeignKey(User, blank=True, null=True)
 	timestamp_submitted	= models.DateTimeField(auto_now_add=True)
 	timestamp_edited	= models.DateTimeField(auto_now=True)
+	class Meta:
+		ordering = ["-timestamp_submitted"]
 
 
 class Link(models.Model):
