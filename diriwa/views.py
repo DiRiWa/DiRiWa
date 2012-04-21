@@ -35,7 +35,11 @@ class RegionDetailView(DetailView):
         context = super(RegionDetailView, self).get_context_data(**kwargs)
         res={}
         for c in Citation.objects.filter(region=kwargs['object']):
+            solo=False
+            try: kwargs['object'].section_set.get(topic=c.topic)
+            except: solo=True
             if not c.topic.name in res: res[c.topic.name]={'topic': c.topic,
+                                                           'solo': solo,
                                                            'citations': []}
             res[c.topic.name]['citations'].append(c)
         context['citations'] = res
