@@ -10,37 +10,38 @@
 {% endblock %}
 {% block content %}
 
-<div class="span8 right" style="text-align: center;">
-		<a href="/sections/add/" class="btn">Add a section</a>
-		<a href="/topics/add/" class="btn">Create new topic</a>
-</div>
-<h1>{{topic.name}}</h1>
+<div class='row-fluid'>
+   <div class="span6 right" style="text-align: center;">
+         <a href="/sections/add/" class="btn">Add a section</a>
+         <a href="/topics/add/" class="btn">Create new topic</a>
+   </div>
+   <h1>{{topic.name}}</h1>
 
-<div class="span12 hidden" id="mapnav">
-   <h3>Source</h3>
-   <p id='sources'></p>
-   <h3>Measure</h3>
-   <p id='measures'></p>
-</div>
-<div class="span12">
-   <div id="map">&nbsp;</div>
-</div>
+   <div class="span11 hidden" id="mapnav">
+      <h3>Source</h3>
+      <p id='sources'></p>
+      <h3>Measure</h3>
+      <p id='measures'></p>
+   </div>
+   <div class="span11">
+      <div id="map">&nbsp;</div>
+   </div>
 
-{% for region in citations %}
-<div class="span16 topic" id="{{region.region.region.isocode}}">
-   <h2><a href="/regions/{{region.region.region.id}}">{% if region.region.region.name %}{{region.region.region.name}}{%else%}{{region.region.region.shortname}}{%endif%}</a></h2>
-   {% if region.section %}
-   {{region.section.wikitext|safe}}
-   {% else %}
-   <p>Theres no info on this section yet, if you know some expert of {{topic.name}} in the {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</p>
-   {% endif %}
-   <a href="/sections/edit/{{region.section.id}}/" class="btn small right">Edit this discussion</a>
-   {% if region.citations %}
-      <h3>Citations</h3>
-      {% regroup region.citations by source as quotes %}
+   {% for region in citations %}
+      <div class="span11 topic" id="{{region.region.region.isocode}}">
+         <h2><a href="/regions/{{region.region.region.id}}">{% if region.region.region.name %}{{region.region.region.name}}{%else%}{{region.region.region.shortname}}{%endif%}</a></h2>
+         {% if region.section %}
+         {{region.section.wikitext|safe}}
+         {% else %}
+         <div>Theres no info on this section yet, if you know some expert of {{topic.name}} in the {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</div>
+         {% endif %}
+         <a href="/sections/edit/{{region.section.id}}/" class="btn small right">Edit this discussion</a>
+      </div>
+      {% if region.citations %}
+         <div class="span11"><h3>Citations</h3></div>
+         {% regroup region.citations by source as quotes %}
 
-      {% for quote in quotes %}
-         <div class="source-container">
+         {% for quote in quotes %}
             <span class="span3 bargraph"></span>
             <span class="span8 quotes">
                {% for item in quote.list %}
@@ -51,14 +52,13 @@
                <h4>Source: <span class="source">{{ quote.grouper }}</span></h4>
                <a class="more-button">Attribution</a><blockquote><small>{{ quote.grouper.attribution|linebreaks }}</small></blockquote>
             </div>
-         </div>
-      {% endfor %}
-   {% endif %}
+         {% endfor %}
+      {% endif %}
+   {% endfor %}
 </div>
-{% endfor %}
 
 {% if topic.relitem.count %}
-   <div class="row">
+   <div class="row-fluid">
      <h2>News</h2>
      {% for item in topic.relitem.all|slice:":6" %}
         {% include "diriwa/newsitem_display.html" %}
