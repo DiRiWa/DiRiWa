@@ -157,6 +157,8 @@ class RegionMembership(models.Model):
 	region		= models.ForeignKey(Region, related_name="members")
 	member		= models.ForeignKey(Region, related_name="member_of")
 	type		= models.CharField(max_length=100, blank=True, null=True)
+	start               = models.DateField(blank=True, null=True)
+	end               = models.DateField(blank=True, null=True)
 
 	def __unicode__(self):
 		return "%s member of %s (%s)" % (self.member, self.region, self.type)
