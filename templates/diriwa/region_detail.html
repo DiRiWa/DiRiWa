@@ -66,7 +66,7 @@
                         <span class="span3 bargraph"></span>
                         <span class="span8 quotes">
                            {% for item in quote.list %}
-                              <p class="quote"><span class="rating-label">{{ item.rating_label }}</span> {% if not item.score == None %}<span class="score">{{ item.score|floatformat }}</span> (out of <span class="maxscore">{{item.maxscore|floatformat}}</span>){%endif%} {% if item.rating %}<span class="rating">{{ item.rating }}</span>{%endif%} <small>{{ item.text|linebreaks|urlize }}</small></p>
+                              <p class="quote"><span class="rating-label">{{ item.rating_label }}</span> {% if not item.score == None %}<span class="score">{{ item.score|floatformat }}</span> (out of <span class="maxscore">{{item.maxscore|floatformat}}</span>){%endif%} {% if item.rating %}<span class="rating">{{ item.rating }}</span>{%endif%} <small>{{ item.text|urlize|linebreaks }}</small></p>
                            {% endfor %}
                         </span>
                         <div class="span8 ref-credit">
