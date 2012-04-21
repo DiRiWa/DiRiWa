@@ -35,7 +35,7 @@ opencorp, created = Source.objects.get_or_create(
                            "In addition, the underlying data is licensed under the Share-Alike Attribution Open Database Licence (http://opendatacommons.org/licenses/odbl/). Attribution should similarly be to OpenCorporates with a hyperlink to the OpenCorporates website (http://OpenCorporates.com), where such a link is possible (e.g. web pages, PDFs, Word documents)."]))
 
 if created: opencorp.save()
-topic = Topic.objects.get(name='Right to Data')
+topic = Topic.objects.get(name='Right to data')
 
 with transaction.commit_on_success():
     for line in reader:
