@@ -14,3 +14,4 @@ python wto_import.py
 python oni_import.py
 python opencorp.py
 python omnom_import.py
+python treatytags.py
