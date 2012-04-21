@@ -11,6 +11,7 @@ import csv
 from diriwa.models import *
 import settings
 from django.db import transaction
+from dateutil.parser import parse as dparse
 settings.DEBUG = False
 
 csvfile = open("../data/wipo_treaties.csv")
@@ -43,6 +44,8 @@ with transaction.commit_on_success():
       if line[0]:
          memrel, created = RegionMembership.objects.get_or_create(region=treaty, member=signatory)
          memrel.type = line[0]
+         if line[3].strip():
+             memrel.start = dparse(line[3])
          memrel.save()
          if created:
             print "Added %s to treaty %s" % (signatory, treaty.name)

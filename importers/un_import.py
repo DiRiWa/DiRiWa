@@ -12,6 +12,7 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 import csv 
 from diriwa.models import *
 import settings
+from dateutil.parser import parse as dparse
 settings.DEBUG = False
 from django.db import transaction
 
@@ -54,9 +55,17 @@ with transaction.commit_on_success():
             continue
 
       # print signatory
-      if line[4]:
+      if line[4].strip():
          memrel, created = RegionMembership.objects.get_or_create(region=treaty, member=signatory)
-         memrel.type = line[4]
+         memrel.type = 'Ratified'
+         try:
+             date=line[4].strip()
+             if date[0]=='[' and date[-1]==']': date=date[1:-1]
+             date=' '.join(date.split(' ')[:3])
+             memrel.start = dparse(date,fuzzy=True)
+         except:
+             print line[4]
+             raise
          memrel.save()
          if created:
             print (u"Added %s to treaty %s" % (signatory, treaty.name)).encode('utf8')

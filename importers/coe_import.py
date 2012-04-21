@@ -10,6 +10,7 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 import csv 
 from diriwa.models import *
 from django.db import transaction
+from dateutil.parser import parse as dparse
 import settings
 settings.DEBUG = False
 
@@ -26,7 +27,7 @@ treatytype, created = RegionType.objects.get_or_create(name="Treaty")
 
 with transaction.commit_on_success():
    for line in reader:
-      if '"""' in line[2]: line.replace('"""','"')
+      if '"""' in line[2]: line[2].replace('"""','"')
       treaty, created = Region.objects.get_or_create(name=line[2], type=treatytype)
 
       if created:
@@ -43,6 +44,8 @@ with transaction.commit_on_success():
       if line[1]:
          memrel, created = RegionMembership.objects.get_or_create(region=treaty, member=signatory)
          memrel.type = "Ratified"
+         if line[1].strip():
+             memrel.start = dparse(line[1].split(' ')[0])
          memrel.save()
          if created:
             print "Added %s to treaty %s" % (signatory, treaty.name)
