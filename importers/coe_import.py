@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 #
 #####
@@ -26,6 +26,7 @@ treatytype, created = RegionType.objects.get_or_create(name="Treaty")
 
 with transaction.commit_on_success():
    for line in reader:
+      if '"""' in line[2]: line.replace('"""','"')
       treaty, created = Region.objects.get_or_create(name=line[2], type=treatytype)
 
       if created:
