@@ -25,9 +25,9 @@ if created: treatytype.save()
 
 with transaction.commit_on_success():
     for line in reader:
-        try: treaty = Region.objects.get(name=line[2], type=treatytype)
+        try: treaty = Region.objects.get(name=line[1], type=treatytype)
         except:
-            print "Failed to recognize: %s" % line[2]
+            print "Failed to recognize: %s" % line[1]
             continue
         for tag in line[0].split(', '):
             if tag=="?": continue
