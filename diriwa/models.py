@@ -237,6 +237,8 @@ class SectionVote(models.Model):
 class Tag(models.Model):
 	name			= models.CharField(max_length = 40)
 	description		= models.TextField()
+	def __unicode__(self):
+		return "%s" % (self.name)
 
 
 class EntityTag(models.Model):
