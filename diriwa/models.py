@@ -88,7 +88,7 @@ class RegionType(models.Model):
 
 
 class Region(Entity):
-	name			= models.CharField(max_length=200)
+	name			= models.CharField(max_length=400)
 	shortname		= models.CharField(max_length=70, blank=True)
 	isocode			= models.CharField(max_length=3, blank=True)
 	map			= models.FileField(upload_to="static/img/maps/", blank=True)
