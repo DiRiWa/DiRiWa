@@ -52,11 +52,14 @@
 	<div class="row">
       {% for section in region.section_set.all %}
          {% include "diriwa/section_display.html" %}
+         {% for link in section.link_set.all %}
+               <p><a href="{{link.url}}">{{link.title}}</a> {{link.description}}</p>
+         {% endfor %}
       {% endfor %}
 
       {% for topic in citations.values %}
          {% if topic.solo %}
-            <div class="span16 topic" id="{{topic.topic.name}}">
+            <div class="span12 topic" id="{{topic.topic.name}}">
                <h2>{{topic.topic.name}}</h2>
                {% if topic.citations %}
                   {% regroup topic.citations by source as quotes %}

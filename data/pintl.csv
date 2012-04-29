@@ -1,0 +1,257 @@
+data_id,url,country,chapter
+1,https://www.privacyinternational.org/reports/armenia/i-legal-framework,Armenia, Legal Framework
+2,https://www.privacyinternational.org/reports/armenia/ii-surveillance-policy,Armenia,Surveillance policy 
+3,https://www.privacyinternational.org/reports/armenia/iii-privacy-issues,Armenia, Privacy issues 
+4,https://www.privacyinternational.org/reports/armenia/iv-governance-issues,Armenia,Governance issues
+5,https://www.privacyinternational.org/reports/country-report-australia-2006/i-legal-framework,Armenia,Legal framework
+6,https://www.privacyinternational.org/reports/country-report-australia-2006/ii-surveillance-policies,Armenia, Surveillance policies
+7,https://www.privacyinternational.org/reports/country-report-australia-2006/iii-privacy-topics,Armenia,Privacy topics
+8,https://www.privacyinternational.org/reports/country-report-australia-2006/iv-governance-issues,Armenia,Governance issues
+9,https://www.privacyinternational.org/reports/austria/i-legal-framework,Austria,Legal framework
+10,https://www.privacyinternational.org/reports/austria/ii-surveillance-policies,Austria, Surveillance policies
+11,https://www.privacyinternational.org/reports/austria/iii-privacy-topics,Austria,Privacy topics
+12,https://www.privacyinternational.org/reports/austria/iv-governance-issues,Austria,Governance issues
+13,https://www.privacyinternational.org/reports/bolivia/i-legal-framework,Bolivia, Legal Framework
+14,https://www.privacyinternational.org/reports/bolivia/ii-privacy-issues,Bolivia,Privacy issues
+15,https://www.privacyinternational.org/reports/bolivia/iii-governance-issues,Bolivia,Governance issues 
+16,https://www.privacyinternational.org/reports/brazil/i-legal-framework,Brazil, Legal Framework
+17,https://www.privacyinternational.org/reports/brazil/ii-surveillance-policy,Brazil,Surveillance policy
+18,https://www.privacyinternational.org/reports/brazil/iii-privacy-issues,Brazil, Privacy issues
+19,https://www.privacyinternational.org/reports/brazil/iv-governance-issues,Brazil,Governance issues
+20,https://www.privacyinternational.org/reports/bulgaria/i-legal-framework,Bulgaria ,Legal framework
+21,https://www.privacyinternational.org/reports/bulgaria/ii-surveillance-policies,Bulgaria , Surveillance policies
+22,https://www.privacyinternational.org/reports/bulgaria/iii-privacy-topics,Bulgaria ,Privacy topics
+23,https://www.privacyinternational.org/reports/bulgaria/iv-governance-issues,Bulgaria ,Governance issues
+24,https://www.privacyinternational.org/reports/country-report-canada-2006/i-legal-framework,Canada,Legal framework
+25,https://www.privacyinternational.org/node/748,Canada, Surveillance policies
+26,https://www.privacyinternational.org/reports/country-report-canada-2006/iii-privacy-topics,Canada,Privacy topics
+27,https://www.privacyinternational.org/reports/country-report-canada-2006/iv-governance-issues,Canada,Governance issues
+28,https://www.privacyinternational.org/reports/chile/i-legal-framework,Chile, Legal Framework
+29,https://www.privacyinternational.org/reports/chile/ii-surveillance-policy,Chile,Surveillance policy 
+30,https://www.privacyinternational.org/reports/chile/iii-privacy-issues,Chile, Privacy issues 
+31,https://www.privacyinternational.org/reports/chile/iv-governance-issues,Chile,Governance issues
+32,https://www.privacyinternational.org/reports/china/i-legal-framework,China, Legal Framework
+33,https://www.privacyinternational.org/reports/china/ii-surveillance-policy,China,Surveillance policy 
+34,https://www.privacyinternational.org/reports/china/iii-privacy-issues,China, Privacy issues
+35,https://www.privacyinternational.org/reports/china/iv-governance-issues,China,Governance issues
+36,https://www.privacyinternational.org/reports/colombia/i-legal-framework,Colombia, Legal Framework
+37,https://www.privacyinternational.org/reports/colombia/ii-surveillance-policy,Colombia,Surveillance policy
+38,https://www.privacyinternational.org/reports/colombia/iii-privacy-issues,Colombia, Privacy issues
+39,https://www.privacyinternational.org/reports/colombia/iv-governance-issues,Colombia,Governance issues
+40,https://www.privacyinternational.org/reports/country-report-costa-rica-2006/i-legal-framework,Costa Rica,Legal framework
+41,https://www.privacyinternational.org/reports/country-report-costa-rica-2006/ii-surveillance-policies,Costa Rica, Surveillance policies
+42,https://www.privacyinternational.org/reports/country-report-costa-rica-2006/iii-privacy-topics,Costa Rica,Privacy topics
+43,https://www.privacyinternational.org/reports/country-report-costa-rica-2006/iv-governance-issues,Costa Rica,Governance issues
+44,https://www.privacyinternational.org/reports/croatia/i-legal-framework,Croatia,Legal framework
+45,https://www.privacyinternational.org/reports/croatia/ii-surveillance-policies,Croatia, Surveillance policies
+46,https://www.privacyinternational.org/reports/croatia/iii-privacy-topics,Croatia,Privacy topics
+47,https://www.privacyinternational.org/reports/croatia/iv-governance-issues,Croatia,Governance issues
+48,https://www.privacyinternational.org/reports/cyprus/i-legal-framework,Cyprus,Legal framework
+49,https://www.privacyinternational.org/reports/cyprus/ii-surveillance-policies,Cyprus, Surveillance policies
+50,https://www.privacyinternational.org/reports/cyprus/iii-privacy-topics,Cyprus,Privacy topics
+51,https://www.privacyinternational.org/reports/cyprus/iv-governance-issues,Cyprus,Governance issues
+52,https://www.privacyinternational.org/reports/czech-republic/i-legal-framework,Czech Republic,Legal framework
+53,https://www.privacyinternational.org/reports/czech-republic/ii-surveillance-policies,Czech Republic, Surveillance policies
+54,https://www.privacyinternational.org/reports/czech-republic/iii-privacy-topics,Czech Republic,Privacy topics
+55,https://www.privacyinternational.org/reports/czech-republic/iv-governance-issues,Czech Republic,Governance issues
+56,https://www.privacyinternational.org/reports/denmark/i-legal-framework,Denmark,Legal framework
+57,https://www.privacyinternational.org/reports/denmark/ii-surveillance-policies,Denmark, Surveillance policies
+58,https://www.privacyinternational.org/reports/denmark/iii-privacy-topics,Denmark,Privacy topics
+59,https://www.privacyinternational.org/reports/denmark/iv-governance-issues,Denmark,Governance issues
+60,https://www.privacyinternational.org/reports/dominican-republic/i-legal-framework,Dominican Republic, Legal Framework
+61,https://www.privacyinternational.org/reports/dominican-republic/ii-surveillance-policy,Dominican Republic,Surveillance policy
+62,https://www.privacyinternational.org/reports/dominican-republic/iii-privacy-issues,Dominican Republic, Privacy issues
+63,https://www.privacyinternational.org/reports/dominican-republic/iv-governance-issues,Dominican Republic,Governance issues
+64,https://www.privacyinternational.org/reports/ecuador/i-legal-framework,Ecuador, Legal Framework
+65,https://www.privacyinternational.org/reports/ecuador/ii-privacy-issues,Ecuador,Privacy issues
+66,https://www.privacyinternational.org/reports/ecuador/iii-governance-issues,Ecuador,Governance issues 
+67,https://www.privacyinternational.org/reports/el-salvador/i-legal-framework,El Salvador, Legal Framework
+68,https://www.privacyinternational.org/reports/el-salvador/ii-surveillance-policy,El Salvador,Surveillance policy
+69,https://www.privacyinternational.org/reports/el-salvador/iii-privacy-issues,El Salvador, Privacy issues
+70,https://www.privacyinternational.org/reports/el-salvador/iv-governance-issues,El Salvador,Governance issues
+71,https://www.privacyinternational.org/reports/estonia/i-legal-framework,Estonia,Legal framework
+72,https://www.privacyinternational.org/reports/estonia/ii-surveillance-policies,Estonia, Surveillance policies
+73,https://www.privacyinternational.org/reports/estonia/iii-privacy-topics,Estonia,Privacy topics
+74,https://www.privacyinternational.org/reports/estonia/iv-governance-issues,Estonia,Governance issues
+75,https://www.privacyinternational.org/reports/finland/i-legal-framework,Finland,Legal framework
+76,https://www.privacyinternational.org/reports/finland/ii-surveillance-policies,Finland, Surveillance policies
+77,https://www.privacyinternational.org/reports/finland/iii-privacy-topics,Finland,Privacy topics
+78,https://www.privacyinternational.org/reports/finland/iv-governance-issues,Finland,Governance issues
+79,https://www.privacyinternational.org/reports/france/i-legal-framework,France,Legal framework
+80,https://www.privacyinternational.org/reports/france/ii-surveillance-policies,France, Surveillance policies
+81,https://www.privacyinternational.org/reports/france/iii-privacy-topics,France,Privacy topics
+82,https://www.privacyinternational.org/reports/france/iv-governance-issues,France,Governance issues
+83,https://www.privacyinternational.org/reports/georgia/i-legal-framework,Georgia, Legal Framework
+84,https://www.privacyinternational.org/reports/georgia/ii-surveillance-policy,Georgia,Surveillance policy
+85,https://www.privacyinternational.org/reports/georgia/iii-privacy-issues,Georgia, Privacy issues 
+86,https://www.privacyinternational.org/reports/georgia/iv-governance-issues,Georgia,Governance issues 
+87,https://www.privacyinternational.org/reports/germany/i-legal-framework,Germany,Legal framework
+88,https://www.privacyinternational.org/reports/germany/ii-surveillance-policies,Germany, Surveillance policies
+89,https://www.privacyinternational.org/reports/germany/iii-privacy-topics,Germany,Privacy topics
+90,https://www.privacyinternational.org/reports/germany/iv-governance-issues,Germany,Governance issues
+91,https://www.privacyinternational.org/reports/greece/i-legal-framework,Greece,Legal framework
+92,https://www.privacyinternational.org/reports/greece/ii-surveillance-policies,Greece, Surveillance policies
+93,https://www.privacyinternational.org/reports/greece/iii-privacy-topics,Greece,Privacy topics
+94,https://www.privacyinternational.org/reports/greece/iv-governance-issues,Greece,Governance issues
+95,https://www.privacyinternational.org/reports/guatemala/i-legal-framework,Guatemala, Legal Framework
+96,https://www.privacyinternational.org/reports/guatemala/ii-surveillance-policy,Guatemala,Surveillance policy
+97,https://www.privacyinternational.org/reports/guatemala/iii-privacy-issues,Guatemala, Privacy issues 
+98,https://www.privacyinternational.org/reports/guatemala/iv-governance-issues,Guatemala,Governance issues
+99,https://www.privacyinternational.org/reports/hungary/i-legal-framework,Hungary,Legal framework
+100,https://www.privacyinternational.org/reports/hungary/ii-surveillance-policies,Hungary, Surveillance policies
+101,https://www.privacyinternational.org/reports/hungary/iv-governance-issues,Hungary,Governance issues
+102,https://www.privacyinternational.org/reports/india/i-legal-framework,India, Legal Framework
+103,https://www.privacyinternational.org/reports/india/ii-surveillance-policy,India,Surveillance policy 
+104,https://www.privacyinternational.org/reports/india/iii-privacy-issues,India, Privacy issues 
+105,https://www.privacyinternational.org/reports/india/iv-governance-issues,India,Governance issues 
+106,https://www.privacyinternational.org/reports/iraq/i-legal-framework,Iraq, Legal Framework
+107,https://www.privacyinternational.org/reports/iraq/ii-surveillance-policy,Iraq,Surveillance policy
+108,https://www.privacyinternational.org/reports/iraq/iii-privacy-issues,Iraq, Privacy issues
+109,https://www.privacyinternational.org/reports/iraq/iv-governance-issues,Iraq,Governance issues
+110,https://www.privacyinternational.org/reports/ireland/i-legal-framework,Ireland,Legal framework
+111,https://www.privacyinternational.org/reports/ireland/ii-surveillance-policies,Ireland, Surveillance policies
+112,https://www.privacyinternational.org/reports/ireland/iii-privacy-topics,Ireland,Privacy topics
+113,https://www.privacyinternational.org/reports/ireland/iv-governance-issues,Ireland,Governance issues
+114,https://www.privacyinternational.org/reports/italy/i-legal-framework,Italy,Legal framework
+115,https://www.privacyinternational.org/reports/italy/ii-surveillance-policies,Italy, Surveillance policies
+116,https://www.privacyinternational.org/reports/italy/iii-privacy-topics,Italy,Privacy topics
+117,https://www.privacyinternational.org/reports/italy/iv-governance-issues,Italy,Governance issues
+118,https://www.privacyinternational.org/reports/japan/i-legal-framework,Japan, Legal Framework
+119,https://www.privacyinternational.org/reports/japan/ii-surveillance-policy,Japan,Surveillance policy 
+120,https://www.privacyinternational.org/reports/japan/iii-privacy-issues,Japan, Privacy issues 
+121,https://www.privacyinternational.org/reports/japan/iv-governance-issues,Japan,Governance issues
+122,https://www.privacyinternational.org/reports/jordan/i-legal-framework,Jordan, Legal Framework 
+123,https://www.privacyinternational.org/reports/jordan/ii-surveillance-policy,Jordan,Surveillance policy 
+124,https://www.privacyinternational.org/reports/jordan/iii-privacy-issues,Jordan, Privacy issues 
+125,https://www.privacyinternational.org/reports/jordan/iv-governance-issues,Jordan,Governance issues
+126,https://www.privacyinternational.org/reports/latvia/i-legal-framework,Latvia,Legal framework
+127,https://www.privacyinternational.org/reports/latvia/ii-surveillance-policies,Latvia, Surveillance policies
+128,https://www.privacyinternational.org/reports/latvia/iii-privacy-topics,Latvia,Privacy topics
+129,https://www.privacyinternational.org/reports/latvia/iv-governance-issues,Latvia,Governance issues
+130,https://www.privacyinternational.org/reports/lithuania/i-legal-framework,Lithuania,Legal framework
+131,https://www.privacyinternational.org/reports/lithuania/ii-surveillance-policies,Lithuania, Surveillance policies
+132,https://www.privacyinternational.org/reports/lithuania/iii-privacy-topics,Lithuania,Privacy topics
+133,https://www.privacyinternational.org/reports/lithuania/iv-governance-issues,Lithuania,Governance issues
+134,https://www.privacyinternational.org/reports/luxembourg/i-legal-framework,Luxembourg,Legal framework
+135,https://www.privacyinternational.org/reports/luxembourg/ii-surveillance-policies,Luxembourg, Surveillance policies
+136,https://www.privacyinternational.org/reports/luxembourg/iii-privacy-topics,Luxembourg,Privacy topics
+137,https://www.privacyinternational.org/reports/luxembourg/iv-governance-issues,Luxembourg,Governance issues
+138,https://www.privacyinternational.org/reports/mexico/i-legal-framework,Mexico, Legal Framework
+139,https://www.privacyinternational.org/reports/mexico/ii-surveillance-policy,Mexico,Surveillance policy 
+140,https://www.privacyinternational.org/reports/mexico/iii-privacy-issues,Mexico, Privacy issues
+141,https://www.privacyinternational.org/reports/mexico/iv-governance-issues,Mexico,Governance issues 
+142,https://www.privacyinternational.org/reports/mongolia/i-legal-framework,Mongolia, Legal Framework
+143,https://www.privacyinternational.org/reports/mongolia/ii-surveillance-policy,Mongolia,Surveillance policy 
+144,https://www.privacyinternational.org/reports/mongolia/iii-privacy-issues,Mongolia, Privacy issues 
+145,https://www.privacyinternational.org/reports/mongolia/iv-governance-issues,Mongolia,Governance issues
+146,https://www.privacyinternational.org/reports/the-netherlands/i-legal-framework,Netherlands,Legal framework
+147,https://www.privacyinternational.org/reports/the-netherlands/ii-surveillance-policies,Netherlands, Surveillance policies
+148,https://www.privacyinternational.org/reports/the-netherlands/iii-privacy-topics,Netherlands,Privacy topics
+149,https://www.privacyinternational.org/reports/the-netherlands/iv-governance-issues,Netherlands,Governance issues
+150,https://www.privacyinternational.org/reports/nigeria/i-legal-framework,Nigeria, Legal Framework
+151,https://www.privacyinternational.org/reports/nigeria/ii-surveillance-policy,Nigeria,Surveillance policy
+152,https://www.privacyinternational.org/reports/nigeria/iii-privacy-issues,Nigeria, Privacy issues
+153,https://www.privacyinternational.org/reports/nigeria/iv-governance-issues,Nigeria,Governance issues
+154,https://www.privacyinternational.org/reports/norway/i-legal-framework,Norway,Legal framework
+155,https://www.privacyinternational.org/reports/norway/ii-surveillance-policies,Norway, Surveillance policies
+156,https://www.privacyinternational.org/reports/norway/iii-privacy-topics,Norway,Privacy topics
+157,https://www.privacyinternational.org/reports/norway/iv-governance-issues,Norway,Governance issues
+158,https://www.privacyinternational.org/reports/paraguay/i-legal-framework,Paraguay, Legal Framework
+159,https://www.privacyinternational.org/reports/paraguay/ii-surveillance-policy,Paraguay,Surveillance policy 
+160,https://www.privacyinternational.org/reports/paraguay/iii-privacy-issues,Paraguay, Privacy issues 
+161,https://www.privacyinternational.org/reports/paraguay/iv-governance-issues,Paraguay,Governance issues
+162,https://www.privacyinternational.org/reports/peru/i-legal-framework,Peru, Legal Framework
+163,https://www.privacyinternational.org/reports/peru/ii-surveillance-policy,Peru,Surveillance policy
+164,https://www.privacyinternational.org/reports/peru/iii-privacy-issues,Peru, Privacy issues 
+165,https://www.privacyinternational.org/reports/peru/iv-governance-issues,Peru,Governance issues
+166,https://www.privacyinternational.org/reports/poland/i-legal-framework,Poland,Legal framework
+167,https://www.privacyinternational.org/reports/poland/ii-surveillance-policies,Poland, Surveillance policies
+168,https://www.privacyinternational.org/reports/poland/iii-privacy-topics,Poland,Privacy topics
+169,https://www.privacyinternational.org/reports/poland/iv-governance-issues,Poland,Governance issues
+170,https://www.privacyinternational.org/reports/portugal/i-legal-framework,Portugal,Legal framework
+171,https://www.privacyinternational.org/reports/portugal/ii-surveillance-policies,Portugal, Surveillance policies
+172,https://www.privacyinternational.org/reports/portugal/iii-privacy-topics,Portugal,Privacy topics
+173,https://www.privacyinternational.org/reports/portugal/iv-governance-issues,Portugal,Governance issues
+174,https://www.privacyinternational.org/reports/romania/i-legal-framework,Romania,Legal framework
+175,https://www.privacyinternational.org/reports/romania/ii-surveillance-policies,Romania, Surveillance policies
+176,https://www.privacyinternational.org/reports/romania/iii-privacy-topics,Romania,Privacy topics
+177,https://www.privacyinternational.org/reports/romania/iv-governance-issues,Romania,Governance issues
+178,https://www.privacyinternational.org/reports/russia/i-legal-framework,Russia, Legal Framework
+179,https://www.privacyinternational.org/reports/russia/ii-surveillance-policy,Russia,Surveillance policy 
+180,https://www.privacyinternational.org/reports/russia/iii-privacy-issues,Russia, Privacy issues 
+181,https://www.privacyinternational.org/reports/russia/iv-governance-issues,Russia,Governance issues
+182,https://www.privacyinternational.org/reports/san-marino/i-legal-framework,San Marino, Legal Framework
+183,https://www.privacyinternational.org/reports/san-marino/ii-governance-issues,San Marino,Governance Issues 
+184,https://www.privacyinternational.org/reports/singapore/i-legal-framework,Singapore, Legal Framework
+185,https://www.privacyinternational.org/reports/singapore/ii-surveillance-policy,Singapore,Surveillance policy 
+186,https://www.privacyinternational.org/reports/singapore/iii-privacy-issues,Singapore, Privacy issues 
+187,https://www.privacyinternational.org/reports/singapore/iv-governance-issues,Singapore,Governance issues
+188,https://www.privacyinternational.org/reports/slovakia/i-legal-framework,Slovakia,Legal framework
+189,https://www.privacyinternational.org/reports/slovakia/ii-surveillance-policies,Slovakia, Surveillance policies
+190,https://www.privacyinternational.org/reports/slovakia/iii-privacy-topics,Slovakia,Privacy topics
+191,https://www.privacyinternational.org/reports/slovakia/iv-governance-issues,Slovakia,Governance issues
+192,https://www.privacyinternational.org/reports/slovenia/i-legal-framework,Slovenia,Legal framework
+193,https://www.privacyinternational.org/reports/slovenia/ii-surveillance-policies,Slovenia, Surveillance policies
+194,https://www.privacyinternational.org/reports/slovenia/iii-privacy-topics,Slovenia,Privacy topics
+195,https://www.privacyinternational.org/reports/slovenia/iv-governance-issues,Slovenia,Governance issues
+196,https://www.privacyinternational.org/reports/south-korea/i-legal-framework,South Korea, Legal framework
+197,https://www.privacyinternational.org/reports/south-korea/ii-surveillance-policy,South Korea,Surveillance policy 
+198,https://www.privacyinternational.org/reports/south-korea/iii-governance-issues,South Korea,Governance issues 
+199,https://www.privacyinternational.org/reports/spain/i-legal-framework,Spain,Legal framework
+200,https://www.privacyinternational.org/reports/spain/ii-surveillance-policies,Spain, Surveillance policies
+201,https://www.privacyinternational.org/reports/spain/iii-privacy-topics,Spain,Privacy topics
+202,https://www.privacyinternational.org/reports/spain/iv-governance-issues,Spain,Governance issues
+203,https://www.privacyinternational.org/reports/sri-lanka/i-legal-framework,Sri Lanka, Legal Framework
+204,https://www.privacyinternational.org/reports/sri-lanka/ii-privacy-issues,Sri Lanka,Privacy issues
+205,https://www.privacyinternational.org/reports/sri-lanka/iii-governance-issues,Sri Lanka,Governance issues 
+206,https://www.privacyinternational.org/reports/sweden/i-legal-framework,Sweden,Legal framework
+207,https://www.privacyinternational.org/reports/sweden/ii-surveillance-policies,Sweden, Surveillance policies
+208,https://www.privacyinternational.org/reports/sweden/iii-privacy-topics,Sweden,Privacy topics
+209,https://www.privacyinternational.org/reports/sweden/iv-governance-issues,Sweden,Governance issues
+210,https://www.privacyinternational.org/reports/switzerland/i-legal-framework,Switzerland,Legal framework
+211,https://www.privacyinternational.org/reports/switzerland/ii-surveillance-policies,Switzerland, Surveillance policies
+212,https://www.privacyinternational.org/reports/switzerland/iii-privacy-issues,Switzerland, Privacy issues
+213,https://www.privacyinternational.org/reports/switzerland/iv-governance-issues,Switzerland,Governance issues
+214,https://www.privacyinternational.org/reports/taiwan/i-legal-framework,"China, Republic of (Taiwan)", Legal Framework
+215,https://www.privacyinternational.org/reports/taiwan/ii-surveillance-policy,"China, Republic of (Taiwan)",Surveillance policy 
+216,https://www.privacyinternational.org/reports/taiwan/iii-privacy-issues,"China, Republic of (Taiwan)", Privacy issues 
+217,https://www.privacyinternational.org/reports/taiwan/iv-governance-issues,"China, Republic of (Taiwan)",Governance issues 
+218,https://www.privacyinternational.org/reports/thailand/i-legal-framework,Thailand, Legal Framework
+219,https://www.privacyinternational.org/reports/thailand/ii-surveillance-policy,Thailand,Surveillance policy 
+220,https://www.privacyinternational.org/reports/thailand/iii-privacy-issues,Thailand, Privacy issues 
+221,https://www.privacyinternational.org/reports/philippines/i-legal-framework,Philippines, Legal Framework
+222,https://www.privacyinternational.org/reports/philippines/ii-surveillance-policy,Philippines,Surveillance policy 
+223,https://www.privacyinternational.org/reports/philippines/iii-privacy-issues,Philippines, Privacy issues 
+224,https://www.privacyinternational.org/reports/philippines/iv-governance-issues,Philippines,Governance issues
+225,https://www.privacyinternational.org/reports/turkey/i-legal-framework,Turkey,Legal framework
+226,https://www.privacyinternational.org/reports/turkey/ii-surveillance-policies,Turkey, Surveillance policies
+227,https://www.privacyinternational.org/reports/turkey/iii-privacy-topics,Turkey,Privacy topics
+228,https://www.privacyinternational.org/reports/turkey/iv-governance-issues,Turkey,Governance issues
+229,https://www.privacyinternational.org/reports/uganda/i-legal-framework,Uganda, Legal Framework
+230,https://www.privacyinternational.org/reports/uganda/ii-surveillance-policy,Uganda,Surveillance policy 
+231,https://www.privacyinternational.org/reports/uganda/iii-privacy-issues,Uganda, Privacy issues 
+232,https://www.privacyinternational.org/reports/uganda/iv-governance-issues,Uganda,Governance issues
+233,https://www.privacyinternational.org/reports/ukraine/i-legal-framework,Ukraine, Legal Framework
+234,https://www.privacyinternational.org/reports/ukraine/ii-surveillance-policy,Ukraine,Surveillance policy 
+235,https://www.privacyinternational.org/reports/ukraine/iii-privacy-issues,Ukraine, Privacy issues
+236,https://www.privacyinternational.org/reports/ukraine/iv-governance-issues,Ukraine,Governance issues 
+237,https://www.privacyinternational.org/reports/united-arab-emirates/i-legal-framework,United Arab Emirates, Legal Framework
+238,https://www.privacyinternational.org/reports/united-arab-emirates/ii-privacy-issues,United Arab Emirates, Privacy issues 
+239,https://www.privacyinternational.org/reports/united-arab-emirates/iii-governance-issues,United Arab Emirates,Governance issues 
+240,https://www.privacyinternational.org/reports/united-kingdom/i-legal-framework,United Kingdom,Legal framework
+241,https://www.privacyinternational.org/reports/united-kingdom/ii-surveillance-policies,United Kingdom, Surveillance policies
+242,https://www.privacyinternational.org/reports/united-kingdom/iii-privacy-topics,United Kingdom,Privacy topics
+243,https://www.privacyinternational.org/reports/united-kingdom/iv-governance-issues,United Kingdom,Governance issues
+244,https://www.privacyinternational.org/reports/united-states-of-america/i-legal-framework,United States of America, Legal Framework
+245,https://www.privacyinternational.org/reports/united-states-of-america/ii-surveillance-policy,United States of America,Surveillance policy 
+246,https://www.privacyinternational.org/reports/united-states-of-america/iii-privacy-issues,United States of America, Privacy issues
+247,https://www.privacyinternational.org/reports/united-states-of-america/iv-governance-issues,United States of America,Governance issues 
+248,https://www.privacyinternational.org/reports/uruguay/i-legal-framework,Uruguay, Legal Framework
+249,https://www.privacyinternational.org/reports/uruguay/ii-privacy-issues,Uruguay,Privacy issues
+250,https://www.privacyinternational.org/reports/uruguay/iii-governance-issues,Uruguay,Governance issues 
+251,https://www.privacyinternational.org/reports/country-report-bolivia-2006/i-legal-framework,Venezuela,Legal framework
+252,https://www.privacyinternational.org/reports/country-report-bolivia-2006/ii-surveillance-policies,Venezuela, Surveillance policies
+253,https://www.privacyinternational.org/reports/country-report-bolivia-2006/iii-privacy-topics,Venezuela,Privacy topics
+254,https://www.privacyinternational.org/reports/country-report-bolivia-2006/iv-governance-issues,Venezuela,Governance issues
+255,https://www.privacyinternational.org/reports/zimbabwe/i-legal-framework,Zimbabwe, Legal Framework
+256,https://www.privacyinternational.org/reports/zimbabwe/ii-privacy-and-governance-issues,Zimbabwe,Privacy and governance issues 
