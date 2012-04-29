@@ -32,6 +32,9 @@
          <h2><a href="/regions/{{region.region.region.id}}">{% if region.region.region.name %}{{region.region.region.name}}{%else%}{{region.region.region.shortname}}{%endif%}</a></h2>
          {% if region.section %}
          {{region.section.wikitext|safe}}
+         {% for link in region.section.link_set.all %}
+               <p><a href="{{link.url}}">{{link.title}}</a> {{link.description}}</p>
+         {% endfor %}
          {% else %}
          <div>Theres no info on this section yet, if you know some expert of {{topic.name}} in the {{region.region.region.name}}, nudge her or him to fill in the blanks. Thanks!</div>
          {% endif %}
