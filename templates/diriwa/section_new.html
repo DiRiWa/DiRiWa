@@ -4,8 +4,8 @@
 
 <h1>New Section{% if region %} about {{region.get_name}}{% endif %}</h1>
 <div class="span12">
-<form action="/sections/add/" method="POST">
-<input type="hidden" name="region" id="{{region.id}}"/>
+<form action="/regions/{{region.id}}/sections/add/" method="POST">
+<input type="hidden" name="region" value="{{region.id}}"/>
 {%csrf_token%}
 <fieldset> 
 {{form|bootstrap}}

@@ -66,7 +66,7 @@ class SectionCreateView(CreateView):
    context_object_name = "section"
    template_name = "diriwa/section_new.html"
    form_class = SectionForm
-   success_url = "/regions/%(region)d/"
+   success_url = "/regions/%(region_id)d/"
 
    def dispatch(self, *args, **kwargs):
       self.region = get_object_or_404(Region, id=kwargs["region"])
