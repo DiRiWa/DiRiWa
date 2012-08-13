@@ -4,7 +4,7 @@
 
 <h1>Edit Section: {{section.name}}</h1>
 <div class="span12 mainedit">
-<form action="/sections/edit/{{entitytopic.id}}/" method="POST">
+<form action="/sections/edit/{{section.id}}/" method="POST">
 {%csrf_token%}
 <fieldset> 
 {{form|bootstrap}}
